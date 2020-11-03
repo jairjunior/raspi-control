@@ -3,6 +3,13 @@ const fs = require('fs');
 const path = require('path');
 const app = express();
 
+
+/* 
+ * Configurações do pacote body-parser para interpretar JSON 
+ */
+app.use(express.json()) // for parsing application/json
+app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
 /* 
  * express.static(root, [options])
  * This is a built-in middleware function in Express. It serves static files and is based on serve-static.
@@ -23,7 +30,16 @@ app.get('/', (req, res) => {
 	res.sendFile( path.join(__dirname, '_views', 'index.html') );
 	res.end();
 });
+
+app.post('/leds', (req, res) => {
+	console.log(req.body);
+	if(req.body.ledState == 'ON')
+		res.status(200).send('LED Turned on!');
+	if(req.body.ledState == 'OFF')
+		res.status(200).send('LED Turned off!');
+});
 	
+
 app.listen(3000, () => {
 	console.log('Server listening on port 3000...');
 });

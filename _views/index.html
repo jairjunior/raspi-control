@@ -26,11 +26,13 @@
 
      <div class="led-container">
           <div class="inner-container">
-
+               <h2>LEDs</h2>
+               <p>Use the buttons below to turn on and turn off the LED remotely.</p>
                <div class="flex center">
-                    <input type="button" value="Turn On" class="btn btn-green">
-                    <input type="button" value="Turn Off" class="btn btn-red">
+                    <input type="button" value="Turn On" class="btn btn-green" onclick="turnOnLED()">
+                    <input type="button" value="Turn Off" class="btn btn-red" onclick="turnOffLED()">
                </div>
+               <p id="ledStatus"></p>
           </div>
           
      </div>
@@ -40,5 +42,8 @@
           <p>Copyright &#169; 2020</p>
      </footer>
      
+
+
+     <script src="index.js"></script>
 </body>
 </html>

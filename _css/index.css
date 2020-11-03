@@ -21,7 +21,7 @@
 #top-navbar{
      background-image: linear-gradient(to right, #2C001E 0%, #5E2750, #77216F 100%);
      margin-top: 0px;
-     margin-bottom: 30px;
+     margin-bottom: 50px;
      padding: 0px;
      height: 8vh;
      display: flex;
@@ -56,6 +56,19 @@
      color: #F8CCBC;
 }
 
+
+
+
+
+.led-container{
+     height: 1000px;
+}
+
+.led-container > .inner-container{
+     width: 70%;
+     margin: auto;
+     text-align: center;
+}
 
 
 
@@ -101,16 +114,6 @@
 	top:1px;
 }
 
-
-
-.led-container{
-     height: 1500px;
-}
-
-.led-container > .inner-container{
-     width: 70%;
-     margin: auto;
-}
 
 
 footer{
