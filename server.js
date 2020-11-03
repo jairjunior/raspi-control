@@ -3,11 +3,13 @@ const fs = require('fs');
 
 
 const server = http.createServer( (req, res) => {
-	if(req.url === '/'){
+	if( req.url === '/' && req.method == 'GET' ){
 		fs.readFile('./_views/index.html', 'utf8', (err, data) => {
 			if(err) throw err;
 			res.writeHead(200, {'Content-Type': 'text/html'});
 			res.write(data);
+			response.writeHead(200, {"Content-Type":"text/css"}); 
+			
 			res.end();
 		});
 	}
