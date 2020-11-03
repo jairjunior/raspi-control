@@ -1,36 +1,29 @@
-const http = require('http');
+const express = require('express');
 const fs = require('fs');
+const path = require('path');
+const app = express();
+
+/* 
+ * express.static(root, [options])
+ * This is a built-in middleware function in Express. It serves static files and is based on serve-static.
+ * 
+ * The path.join() method joins all given path segments together using the platform-specific separator as a delimiter, then normalizes the resulting path.
+ */
+app.use( express.static( path.join(__dirname, '_views') ) );
+app.use( express.static( path.join(__dirname, '_js') ) );
+app.use( express.static( path.join(__dirname, '_css') ) );
 
 
-const server = http.createServer( (req, res) => {
-	if( req.url === '/' && req.method == 'GET' ){
-		fs.readFile('./_views/index.html', 'utf8', (err, data) => {
-			if(err) throw err;
-			res.writeHead(200, {'Content-Type': 'text/html'});
-			res.write(data);
-			response.writeHead(200, {"Content-Type":"text/css"}); 
-			
-			res.end();
-		});
-	}
-	else if(req.url === '/leds'){
-		res.write('LEDs page!');
-		res.end();
-	}
-	else if (req.url === '/buttons'){
-		res.write('Buttons page!');
-		res.end();
-	}
-	else if (req.url === '/reqbody'){
-		console.log('Method: ', req.method);
-		console.log('URL: ', req.url);
-		console.log('HTTP headers: ', req.headers);
-		console.log('Request body: ', req.body);
-		console.log('--------------------------------');
-		res.end();
-	}
+/*
+ * res.sendFile(path [, options] [, fn])
+ * Transfers the file at the given path. Sets the Content-Type response HTTP header field based on the filename’s extension.
+ * Unless the root option is set in the options object, path must be an absolute path to the file.
+ */
+app.get('/', (req, res) => {
+	res.sendFile( path.join(__dirname, '_views', 'index.html') );
+	res.end();
 });
 	
-server.listen(3000, () => {
+app.listen(3000, () => {
 	console.log('Server listening on port 3000...');
 });
