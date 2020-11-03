@@ -4,33 +4,41 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
-     <!-- Latest compiled and minified CSS -->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-     <!-- Optional theme -->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-     <!-- Latest compiled and minified JavaScript -->
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
      <link rel="stylesheet" type='text/css' href="index.css">
 
      <title>LED Control</title>
 </head>
 
 <body>
-     <header>
-          <div class="container-fluid text-center page-header">
-               <h1>LED Control</h1>
+     <div id="top-navbar">
+          <div id="top-logo">
+               <h3>LED Control</h3>
           </div>
-     </header>
+          <nav>
+               <ul id="top-navlinks">
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">GRAPHICS</a></li>
+                    <li><a href="#">DOCUMENTATION</a></li>
+                    <li><a href="#">CONTACT</a></li>
+               </ul>
+          </nav>
+     </div>
 
-     <div class="container">
-          <button type="submit" class="btn btn-default">Liga</button>
-          <button type="submit" class="btn btn-default">Desliga</button>
+     <div class="led-container">
+          <div class="inner-container">
+
+               <div class="flex center">
+                    <input type="button" value="Turn On" class="btn btn-green">
+                    <input type="button" value="Turn Off" class="btn btn-red">
+               </div>
+          </div>
+          
      </div>
      
-
+     <footer>
+          <p>Created by Jair Junior</p>
+          <p>Copyright &#169; 2020</p>
+     </footer>
      
 </body>
 </html>
