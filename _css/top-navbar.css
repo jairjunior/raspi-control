@@ -27,9 +27,11 @@
     font-size: 14px;
     font-weight: bold;
     color: white;
+    transition: color 0.48s ease-in-out;
 }
 .top-navlinks > li > a:hover{
-    color: #F8CCBC;
+    color: #E95420;
+    text-shadow: 2px 2px 5px #2C001E;
 }
 .burger-button{
     display: none;
@@ -97,16 +99,31 @@
         flex-direction: column;
         align-items: center;
         background-image: linear-gradient(to right, #502144 0%, #77216F 100%);
-        transform: translateX(100%); /*hides the sidebar menu out of the page, at the right side*/
+        transform: translateX(100%); /*hides the sidebar out of the page, at the right side*/
+        transition: transform 0.5s ease-in; /*constrols the transition (makes an effect)*/
+    }
+    .top-navlinks li{
+        opacity: 0;
     }
     a.top-link{
         font-size: 3vw;
     }
 }
-
-
-
 .sidebarmenu-show{
     transform: translateX(0px); /*shows the sidebar menu at the right side of the page*/
 }
 
+@keyframes topNavLinksSlide{
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.overflow-hidden{ 
+    overflow: hidden;
+}

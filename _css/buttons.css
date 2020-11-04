@@ -17,7 +17,7 @@
 }
 .btn-red:hover{
      background-color: #c62d1f;
-     background:linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
+     background: linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
 }
 .btn-red:active{
 	position:relative;
