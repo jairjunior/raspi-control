@@ -20,7 +20,7 @@ module.exports = class DigitalWrite{
 
           if(value === 'ON'){ 
                device.write(1).catch(err => console.error(err));
-               console.log(name + ' turned on!!!!!!');
+               console.log(name + ' turned on!');
                return {
                     'status': STATUS_OK,
                     'state': 1,
@@ -29,7 +29,7 @@ module.exports = class DigitalWrite{
           }
           else if(value === 'OFF'){
                device.write(0).catch(err => console.error(err));
-               console.log(name + ' turned off!!!!!!');
+               console.log(name + ' turned off!');
                return {
                     'status': STATUS_OK,
                     'state': 0,

@@ -4,8 +4,6 @@ const path = require('path');
 const app = express();
 const DigitalWrite = require('./_src/DigitalWrite');
 
-
-
 /* 
  * Configurações do pacote body-parser para interpretar JSON 
  */
@@ -21,7 +19,6 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 app.use( express.static( path.join(__dirname, '_views') ) );
 app.use( express.static( path.join(__dirname, '_js') ) );
 app.use( express.static( path.join(__dirname, '_css') ) );
-
 
 /*
  * res.sendFile(path [, options] [, fn])
