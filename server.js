@@ -33,17 +33,38 @@ app.get('/', (req, res) => {
 	res.end();
 });
 
+
 app.post('/leds', (req, res) => {
 	console.log(req.body);
-	if(req.body.ledState == 'ON'){
-		greenLED.write(1).catch(err => console.error(err));
-		console.log('LED Turned on!');
-		res.status(200).send('LED Turned on!');
+	if(req.body.ledState === 'ON'){
+		greenLED.read( (err, value) => {
+			if(err)
+				throw err;
+			if(value){
+				console.log('LED is already ON!');
+				res.status(200).send('LED is already ON!');
+			}
+			else{
+				greenLED.write(1).catch(err => console.error(err));
+				console.log('LED Turned on!');
+				res.status(200).send('LED Turned on!');
+			}
+		});
 	}
-	if(req.body.ledState == 'OFF'){
-		greenLED.write(0).catch(err => console.error(err));
-		console.log('LED Turned off!');
-		res.status(200).send('LED Turned off!');
+	if(req.body.ledState === 'OFF'){
+		greenLED.read( (err, value) => {
+			if(err)
+				throw err;
+			if(!value){
+				console.log('LED is already OFF!');
+				res.status(200).send('LED is already OFF!');
+			}
+			else{
+				greenLED.write(0).catch(err => console.error(err));
+				console.log('LED Turned off!');
+				res.status(200).send('LED Turned off!');
+			}
+		});
 	}
 });
 	
