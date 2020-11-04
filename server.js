@@ -2,7 +2,9 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const app = express();
-
+const Gpio = require('onoff').Gpio
+const greenLED = new Gpio(23, 'out');
+const redLED = new Gpio(24, 'out'); 
 
 /* 
  * Configurações do pacote body-parser para interpretar JSON 
@@ -33,10 +35,16 @@ app.get('/', (req, res) => {
 
 app.post('/leds', (req, res) => {
 	console.log(req.body);
-	if(req.body.ledState == 'ON')
+	if(req.body.ledState == 'ON'){
+		greenLED.write(1).catch(err => console.error(err));
+		console.log('LED Turned on!');
 		res.status(200).send('LED Turned on!');
-	if(req.body.ledState == 'OFF')
+	}
+	if(req.body.ledState == 'OFF'){
+		greenLED.write(0).catch(err => console.error(err));
+		console.log('LED Turned off!');
 		res.status(200).send('LED Turned off!');
+	}
 });
 	
 
