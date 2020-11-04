@@ -2,8 +2,6 @@
 
 var xhttp = new XMLHttpRequest();
 var controlLedURL = 'http://192.168.0.13:3000/leds';
-var userName = 'j_junior89';
-var userPassword = 'abc12345';
 
 
 function turnOnLED(){
