@@ -5,7 +5,7 @@
  #top-navbar{
     background-image: linear-gradient(to right, #2C001E 0%, #5E2750, #77216F 100%);
     margin-bottom: 50px;
-    height: 60px;
+    height: 8vh;
     align-items: center;
     font-family: 'Roboto', sans-serif;
 }
@@ -15,19 +15,20 @@
     font-weight: 700;
 }
 #top-navbar > nav{
-    width: 40%;
+    width: 40vw;
 }
-#top-navlinks > li{
+.top-navlinks > li{
     list-style: none;
+    margin: 0px 20px;
 }
-a.top-link{
+.top-navlinks > li > a{
     text-decoration: none;
     letter-spacing: 3px;
     font-size: 14px;
     font-weight: bold;
     color: white;
 }
-a.top-link:hover{
+.top-navlinks > li > a:hover{
     color: #F8CCBC;
 }
 .burger-button{
@@ -42,27 +43,70 @@ a.top-link:hover{
 }
 
 
+/*
+ * 
+ */
 @media screen and (max-width: 1200px){
     #top-logo{
         font-size: 30px;
     }
     #top-navbar > nav{
-        width: 63%;
+        width: 55vw;
     }
 }
 @media screen and (max-width: 1024px){
     #top-logo{
-        font-size: 28px;
+        font-size: 26px;
     }
     #top-navbar > nav{
-        width: 67%;
+        width: 65vw;
+    }
+    .top-navlinks > li{
+        margin: 0px 10px;
     }
 }
 
-
+/*
+ * At this point (less than 768px) the top Navigation Bar colapses into a burger button
+ */
 @media screen and (max-width: 768px){
+    body{
+        overflow-x: hidden; /*prevent from seeing the sidebar menu that is hidden in the right side of the page*/
+   }
+   #top-navbar{
+        height: 8vh;
+   }
+    #top-logo{
+        width: 30vw;
+        margin: auto;
+        font-size: 3vh;
+    }
     .burger-button{
         display: block;
         cursor: pointer;
+        width: 25px;
+        margin: auto;
+    }
+    .top-navlinks{
+        position: absolute;
+        right: 0px;
+        top: 8vh;
+        height: 92vh;
+        width: 70vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-image: linear-gradient(to right, #502144 0%, #77216F 100%);
+        transform: translateX(100%); /*hides the sidebar menu out of the page, at the right side*/
+    }
+    a.top-link{
+        font-size: 3vw;
     }
 }
+
+
+
+.sidebarmenu-show{
+    transform: translateX(0px); /*shows the sidebar menu at the right side of the page*/
+}
+
