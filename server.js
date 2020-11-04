@@ -2,9 +2,9 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const app = express();
-const Gpio = require('onoff').Gpio
-const greenLED = new Gpio(23, 'out');
-const redLED = new Gpio(24, 'out'); 
+const DigitalWrite = require('./_src/DigitalWrite');
+
+
 
 /* 
  * Configurações do pacote body-parser para interpretar JSON 
@@ -35,37 +35,10 @@ app.get('/', (req, res) => {
 
 
 app.post('/leds', (req, res) => {
-	console.log(req.body);
-	if(req.body.ledState === 'ON'){
-		greenLED.read( (err, value) => {
-			if(err)
-				throw err;
-			if(value){
-				console.log('LED is already ON!');
-				res.status(200).send('LED is already ON!');
-			}
-			else{
-				greenLED.write(1).catch(err => console.error(err));
-				console.log('LED Turned on!');
-				res.status(200).send('LED Turned on!');
-			}
-		});
-	}
-	if(req.body.ledState === 'OFF'){
-		greenLED.read( (err, value) => {
-			if(err)
-				throw err;
-			if(!value){
-				console.log('LED is already OFF!');
-				res.status(200).send('LED is already OFF!');
-			}
-			else{
-				greenLED.write(0).catch(err => console.error(err));
-				console.log('LED Turned off!');
-				res.status(200).send('LED Turned off!');
-			}
-		});
-	}
+	var device = req.body.device;
+	var value = req.body.value;
+	var obj = DigitalWrite.turnOnOff(device, value);
+	res.status(obj.status).send(obj);
 });
 	
 
