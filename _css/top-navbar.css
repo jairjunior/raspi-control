@@ -111,6 +111,7 @@
 }
 .sidebarmenu-show{
     transform: translateX(0px); /*shows the sidebar menu at the right side of the page*/
+    opacity: 0.98;
 }
 
 @keyframes topNavLinksSlide{
