@@ -1,0 +1,68 @@
+/*
+ * TOP NAVBAR, present in the top of every page of this application.
+ * It has a logo with the name of the app as well as links to navigate through the functionalities
+ */
+ #top-navbar{
+    background-image: linear-gradient(to right, #2C001E 0%, #5E2750, #77216F 100%);
+    margin-bottom: 50px;
+    height: 60px;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+#top-logo{
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+}
+#top-navbar > nav{
+    width: 40%;
+}
+#top-navlinks > li{
+    list-style: none;
+}
+a.top-link{
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+a.top-link:hover{
+    color: #F8CCBC;
+}
+.burger-button{
+    display: none;
+}
+ .burger-button > div{
+     background-color: white;
+     width: 23px;
+     height: 3px;
+     margin: 4px;
+     border-radius: 5px;
+}
+
+
+@media screen and (max-width: 1200px){
+    #top-logo{
+        font-size: 30px;
+    }
+    #top-navbar > nav{
+        width: 63%;
+    }
+}
+@media screen and (max-width: 1024px){
+    #top-logo{
+        font-size: 28px;
+    }
+    #top-navbar > nav{
+        width: 67%;
+    }
+}
+
+
+@media screen and (max-width: 768px){
+    .burger-button{
+        display: block;
+        cursor: pointer;
+    }
+}

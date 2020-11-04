@@ -1,8 +1,8 @@
 const express = require('express');
-const fs = require('fs');
 const path = require('path');
 const app = express();
 const DigitalWrite = require('./_src/DigitalWrite');
+var sensor = require("node-dht-sensor");
 
 /* 
  * Configurações do pacote body-parser para interpretar JSON 
@@ -34,6 +34,11 @@ app.get('/', (req, res) => {
 app.post('/leds', (req, res) => {
 	var device = req.body.device;
 	var value = req.body.value;
+
+	sensor.read(22, 4, function(err, temperature, humidity) {
+		console.log(`temp: ${temperature}°C, humidity: ${humidity}%`);
+   	});
+
 	var obj = DigitalWrite.turnOnOff(device, value);
 	res.status(obj.status).send(obj);
 });

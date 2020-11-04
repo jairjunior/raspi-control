@@ -1,3 +1,7 @@
+/* 
+ * GENERAL RULES for the index.html page
+ * and also for screens with more than 769px wide
+ */
 *{
      margin: 0;
      padding: 0;
@@ -5,6 +9,11 @@
      outline: 0;
      box-sizing: border-box;
 }
+
+
+/*
+ * General classes to use with Flex Box elements.
+ */
 .flex{
      display: flex;
 }
@@ -14,47 +23,11 @@
 .center{
      justify-content: center;
 }
-
 .space-between{
      justify-content: space-between;
 }
-#top-navbar{
-     background-image: linear-gradient(to right, #2C001E 0%, #5E2750, #77216F 100%);
-     margin-top: 0px;
-     margin-bottom: 50px;
-     padding: 0px;
-     height: 8vh;
-     display: flex;
-     justify-content: space-around;
-     align-items: center;
-     font-family: 'Roboto', sans-serif;
-}
-#top-logo{
-     color: white;
-     margin: 0px;
-     font-size: 32px;
-     font-weight: 700;
-}
-#top-navbar > nav{
-     width: 40%;
-}
-#top-navlinks{
-     display: flex;
-     justify-content: space-around;
-}
-#top-navlinks > li{
-     list-style: none;
-}
-#top-navlinks > li > a{
-     color: white;
-     text-decoration: none;
-     letter-spacing: 3px;
-     font-size: 14px;
-     font-weight: bold;
-}
-#top-navlinks > li > a:hover{
-     color: #F8CCBC;
-}
+
+
 
 
 
@@ -68,50 +41,6 @@
      width: 70%;
      margin: auto;
      text-align: center;
-}
-
-
-
-
-
-.btn{
-     padding: 15px;
-     border-radius: 6px;
-     color:#ffffff;
-	font-family: Arial;
-	font-size: 15px;
-	font-weight: bold;
-	padding: 6px 24px;
-     text-decoration: none;
-     cursor: pointer;
-}
-.btn-red{
-     background-color: #f24537;
-     background:linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
-     border: 1px solid #d02718;
-     margin: 20px;
-}
-.btn-red:hover{
-     background-color: #c62d1f;
-     background:linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
-}
-.btn-red:active{
-	position:relative;
-	top:1px;
-}
-.btn-green{
-     background-color: #2ceb45;
-     background:linear-gradient(to bottom, #2ceb45 5%, #20af33 100%);
-     border: 1px solid #0fe92c;
-     margin: 20px;
-}
-.btn-green:hover{
-     background-color: #20af33;
-     background:linear-gradient(to bottom, #20af33 5%, #2ceb45 100%);
-}
-.btn-green:active{
-	position:relative;
-	top:1px;
 }
 
 
