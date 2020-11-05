@@ -2,10 +2,11 @@
      padding: 15px;
      border-radius: 6px;
      color:#ffffff;
-	font-family: Arial;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	font-size: 15px;
-	font-weight: bold;
-	padding: 6px 24px;
+     font-weight: 500;
+     letter-spacing: 1px;
+	padding: 6px 16px;
      text-decoration: none;
      cursor: pointer;
 }
@@ -34,6 +35,20 @@
      background:linear-gradient(to bottom, #20af33 5%, #2ceb45 100%);
 }
 .btn-green:active{
+	position:relative;
+	top:1px;
+}
+.btn-info{
+     background-color: #17a2b8;
+     background:linear-gradient(to bottom, #17a2b8 5%, #138da0 100%);
+     border: 1px solid #17a7bd;
+     margin: 20px;
+}
+.btn-info:hover{
+     background-color: #17a2b8;
+     background: linear-gradient(to bottom, #138da0 5%, #17a2b8 100%);
+}
+.btn-info:active{
 	position:relative;
 	top:1px;
 }

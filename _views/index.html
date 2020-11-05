@@ -18,6 +18,8 @@
      <link rel="stylesheet" type='text/css' href="top-navbar.css">
      <link rel="stylesheet" type='text/css' href="buttons.css">
 
+     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
      <title>RaspiControl | HOME</title>
 </head>
 
@@ -42,19 +44,64 @@
           </nav>
      </div>
 
-     <div class="led-container">
-          <div class="inner-container">
-               <h2>LEDs</h2>
-               <p>Use the buttons below to turn on and turn off the LED remotely.</p>
-               <div class="flex center">
-                    <input type="button" value="greenLED" class="btn btn-green" onclick="turnOnOff(this, 'ON')">
-                    <input type="button" value="greenLED" class="btn btn-red" onclick="turnOnOff(this, 'OFF')">
-               </div>
-               <p id="greeLedStatus"></p>
+
+     <!--  INTRODUCTION -->
+     <section class="section-container introduction flex center align-center">
+
+          <div class="intro-img flex center">
+               <img src="./rpi-hand.png" alt="">
+          </div>
+
+          <div class="intro-header flex align-center">
+               <header>
+                    <h1 class="section-title">The power of IoT</h1>
+                    <p class="section-dscptn"><em>Control and watch all your devices in a single application with a powerful and intuitive dashboard.</em></p>
+                    <p class="section-dscptn"><em>Get information wherever you are. The data collected from sensors and the state of your devices will be shown in the dashboard</em></p>
+                    <p class="section-dscptn"><em>Information in the palm of your hand!</em></p>
+               </header>
+          </div>
+
+
+     </section>
+
+
+     <!--  DEVICES -->
+     <section class="section-container devices">
+
+          <div class="section-header">
+               <header>
+                    <h1 class="section-title">Devices</h1>
+                    <p class="section-dscptn"><em>Control your devices by clicking on their respective buttons.</em></p>
+               </header>
           </div>
           
-     </div>
+          <div class="device-card flex space-between">
+               <div class="device-dscptn">
+                    <h2>Green LED</h2>
+                    <p>Use the button to turn on and off the <span class="text-green">green LED</span> remotely.</p>
+               </div>
+               <div class="device-action">
+                    <input type="button" value="Turn On" class="btn btn-info" onclick="turnOnOff(this, 'greenLED')">
+                    <p class="serverResponseMsg"></p>
+               </div>
+          </div>
+
+
+          <div class="device-card flex space-between">
+               <div class="device-dscptn">     
+                    <h2>Red LED</h2>
+                    <p>Use the buttons below to turn on and off the <span class="text-red">red LED</span> remotely.</p>
+               </div>
+               <div class="device-action">
+                    <input type="button" value="Turn On" class="btn btn-info" onclick="turnOnOff(this, 'redLED')">
+                    <p id="serverResponseMsg"></p>
+               </div>
+          </div>
+
+     </section>
      
+
+
      <footer>
           <p>Created by Jair Junior</p>
           <p>Copyright &#169; 2020</p>

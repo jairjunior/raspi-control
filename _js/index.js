@@ -5,8 +5,8 @@ var xhttp = new XMLHttpRequest();
 var controlLedURL = 'http://192.168.0.13:3000/leds';
 
 
-function turnOnOff(buttonObj, value){
-     console.log('Button: turn '+ value + ' ' + buttonObj.value);
+function turnOnOff(obj, deviceName){
+     console.log('Turn on/off ' + deviceName);
      xhttp.onreadystatechange = function(){
          if(this.readyState == 4 && this.status == 200){
               document.getElementById("greeLedStatus").innerHTML = JSON.parse(this.responseText).message;
