@@ -7,6 +7,7 @@
     height: 8vh;
     align-items: center;
     font-family: 'Roboto', sans-serif;
+    position: relative;
 }
 #top-logo{
     color: white;
@@ -30,7 +31,7 @@
 }
 .top-navlinks > li > a:hover{
     color: #E95420;
-    text-shadow: 2px 2px 5px #2C001E;
+    text-shadow: 4px 4px 5px #2C001E;
 }
 .burger-button{
     display: none;
@@ -41,11 +42,12 @@
      height: 3px;
      margin: 4px;
      border-radius: 5px;
+     box-shadow: 1px 1px 10px 1px #2C001E;
 }
 
 
 /*
- * 
+ * Changes in layout for smaller screens or resolutions
  */
 @media screen and (max-width: 1200px){
     #top-logo{
@@ -67,38 +69,44 @@
     }
 }
 
+
 /*
- * At this point (less than 768px) the top Navigation Bar colapses into a burger button
+ * At this point (less than 768px) the top Navigation Bar colapses into a sidebar menu.
+ * The burger button is used to toggle the sidebar.
  */
 @media screen and (max-width: 768px){
     body{
         overflow-x: hidden; /*prevent from seeing the sidebar menu that is hidden in the right side of the page*/
    }
    #top-navbar{
-        height: 8vh;
+        height: 11vh;
+        z-index: 100;
    }
     #top-logo{
         width: 30vw;
         margin: auto;
-        font-size: 3vh;
+        font-size: 3.5vh;
     }
     .burger-button{
         display: block;
         cursor: pointer;
-        width: 25px;
-        margin: auto;
+        position: absolute;
+        top: 3.6vh;
+        right: 40px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 3px;
     }
     .top-navlinks{
         position: absolute;
         right: 0px;
-        top: 8vh;
-        height: 92vh;
+        top: 11vh;
+        height: 89vh;
         width: 70vw;
         display: flex;
         flex-direction: column;
         align-items: center;
         background-image: linear-gradient(to right, #502144 0%, #77216F 100%);
-        transform: translateX(100%); /*hides the sidebar out of the page, at the right side*/
+        transform: translateX(100%); /*hides the sidebar out the page, at the right side*/
         transition: transform 0.5s ease-in; /*constrols the transition (makes an effect)*/
     }
     .top-navlinks li{
@@ -108,11 +116,23 @@
         font-size: 3vw;
     }
 }
+
+
+
 .sidebarmenu-show{
     transform: translateX(0px); /*shows the sidebar menu at the right side of the page*/
     opacity: 0.98;
 }
+.overflow-hidden{ 
+    overflow: hidden;
+}
 
+
+
+/*
+ * Animation for the links in the sidebar menu.
+ * JavaScript code (top-navbar.js) will control this keyframe.
+ */
 @keyframes topNavLinksSlide{
     from{
         opacity: 0;
@@ -122,8 +142,4 @@
         opacity: 1;
         transform: translateX(0px);
     }
-}
-
-.overflow-hidden{ 
-    overflow: hidden;
 }

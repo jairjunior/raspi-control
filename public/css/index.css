@@ -1,0 +1,120 @@
+/*
+ * First section of the page with background image
+ */
+.top-animation-slide{
+     min-height: 92vh;
+     background: url('./../img/circuit-bg.png');
+     background-size: cover;
+     background-position: center center;
+}
+.top-animation-slide div{
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+}
+.top-animation-slide h1{
+     font-family: 'Syne Mono', monospace;
+     color: white;
+     text-align: center;
+     font-size: 90px;
+     text-shadow: 2px 2px 15px black;
+}
+
+
+
+
+.section-container.raspberry{
+     background-color: #f6f6f5;
+     padding: 50px 150px 0px;
+     min-height: 50vh;
+     align-items: flex-end;
+}
+.raspberry-img{
+     width: 20vw;
+     height: 100%;
+     margin-right: 60px;
+     overflow: hidden;
+}
+.raspberry-header{
+     width: 40vw;
+     height: 100%;
+     padding-bottom: 10%;
+}
+.raspberry-title{
+     font-size: 40px;
+     margin-bottom: 15px
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 1200px){
+     .section-header{
+          width: 70%;
+     }
+     .section-container.raspberry{
+          padding: 40px 80px 0px;
+     }
+     .raspberry-img{
+          width: 30vw;
+          margin-right: 40px;
+     }
+     .raspberry-header{
+          width: 35vw;
+     }
+}
+@media screen and (max-width: 1024px){
+     .section-header{
+          width: 80%;
+     }
+     .section-container.raspberry{
+          padding: 30px 80px 0px;
+     }
+     .raspberry-img{
+          width: 35vw;
+          margin-right: 30px;
+     }
+     .raspberry-header{
+          width: 40vw;
+     }
+}
+@media screen and (max-width: 768px){
+     .top-animation-slide{
+          height: 89vh;
+     }
+     .top-animation-slide h1{
+          font-size: 60px;
+     }
+     .section-container.raspberry{
+          flex-direction: column-reverse;
+          padding: 20px 10px 0px;
+     }
+     .raspberry-img{
+          width: 90%;
+     }
+     .raspberry-header{
+          width: 95%;
+          margin-bottom: 10px;
+          padding-top: 20px;
+     }
+     .section-header{
+          width: 95%;
+          margin-bottom: 20px;
+     }
+     .section-title{
+          margin-bottom: 30px;
+     }
+     .section-text{
+          font-size: 16px;
+     }
+}
+
+
+.animation-text{
+     display: block;
+     transform: translateX(0px);
+}

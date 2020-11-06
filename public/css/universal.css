@@ -1,0 +1,93 @@
+/* 
+ * GENERAL RULES for the index.html page
+ */
+ *{
+     margin: 0;
+     padding: 0;
+     border: 0;
+     outline: 0;
+     box-sizing: border-box;
+}
+
+
+/*
+ * General classes to use throughout the page
+ */
+ .text-red{
+     color: red;
+}
+.text-green{
+     color: green;
+}
+.flex{
+     display: flex;
+}
+.flex-wrap{
+     flex-wrap: wrap;
+}
+.center{
+     justify-content: center;
+}
+.space-around{
+     justify-content: space-around;
+}
+.space-between{
+     justify-content: space-between;
+}
+.space-evenly{
+     justify-content: space-evenly;
+}
+.align-center{
+     align-items: center;
+}
+.direction-col{
+     flex-direction: column;
+   }
+
+
+/* 
+ * Container used to separate sections in the page (by content)
+ */
+.section-container{
+     font-family: 'Ubuntu', sans-serif;
+}
+.section-header{
+     width: 60vw;
+     margin: auto;
+     margin-bottom: 30px;
+}
+.section-title{
+     font-size: 40px;
+     margin-bottom: 10px;
+}
+.section-text{
+     font-size: 22px;
+     line-height: 33px;
+     margin-bottom: 20px;
+}
+
+
+
+
+footer{
+     background-image: linear-gradient(to left, #2C001E 0%, #5E2750, #77216F 100%);
+     text-align: center;
+     color: white;
+     padding: 20px 0px;
+}
+
+
+
+
+@media screen and (max-width: 768px){
+     .section-header{
+          width: 95%;
+          margin-bottom: 20px;
+     }
+     .section-title{
+          margin-bottom: 5px;
+     }
+     .section-text{
+          font-size: 16px;
+     }
+}

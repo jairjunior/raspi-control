@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const DigitalWrite = require('./_src/DigitalWrite');
+const ControlDevices = require('./src/ControlDevices');
 var sensor = require("node-dht-sensor");
 
 /* 
@@ -10,16 +10,26 @@ var sensor = require("node-dht-sensor");
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
+
 /* 
  * express.static(root, [options])
  * This is a built-in middleware function in Express. It serves static files and is based on serve-static.
  * 
  * The path.join() method joins all given path segments together using the platform-specific separator as a delimiter, then normalizes the resulting path.
  */
-app.use( express.static( path.join(__dirname, '_views') ) );
-app.use( express.static( path.join(__dirname, '_css') ) );
-app.use( express.static( path.join(__dirname, '_js') ) );
-app.use( express.static( path.join(__dirname, '_img') ) );
+app.use( express.static( path.join('public') ) );
+app.use( express.static( path.join('public/views') ) );
+app.use( express.static( path.join('public/css') ) );
+app.use( express.static( path.join('public/js') ) );
+app.use( express.static( path.join('public/img') ) );
+
+
+/*
+ * Instantiate object to control all devices connected.
+ */
+const controlDevices = new ControlDevices();
+Object.freeze(controlDevices);
+
 
 /*
  * res.sendFile(path [, options] [, fn])
@@ -27,23 +37,31 @@ app.use( express.static( path.join(__dirname, '_img') ) );
  * Unless the root option is set in the options object, path must be an absolute path to the file.
  */
 app.get('/', (req, res) => {
-	res.sendFile( path.join(__dirname, '_views', 'index.html') );
+	console.log('Request GET.');
+	res.sendFile( path.join(__dirname, 'public/views/index.html') );
 	res.end();
 });
 
 
-app.post('/leds', (req, res) => {
+app.get('/dashboard', (req, res) => {
+	console.log('Request GET.');
+	res.sendFile( path.join(__dirname, 'public/views/dashboard.html') );
+	res.end();
+});
+
+
+app.post('/devices', (req, res) => {
 	var device = req.body.device;
-	var value = req.body.value;
+	console.log();
+	console.log('Server: sending request for toggle ' + device);
+	let result = controlDevices.toggle(device);
 
 	// Temporary test with the 1-wire interface. Just testing....
 	sensor.read(22, 4, function(err, temperature, humidity) {
 		console.log(`temp: ${temperature}°C, humidity: ${humidity}%`);
-   	});
-
-
-	var obj = DigitalWrite.turnOnOff(device, value);
-	res.status(obj.status).send(obj);
+	});
+	   
+	res.status(result).send({ 'status': 'success' });
 });
 	
 
