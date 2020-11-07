@@ -54,19 +54,33 @@
           <section class="section-container temperature">
                <div class="section-header">
                     <header>
-                         <h1 class="section-title">Temperature</h1>
+                         <h1 class="section-title">Weather</h1>
                          <p class="section-text"><em>Compare your temperature measurements with data from OpenWeather API.</em></p>
                     </header>
                </div>
 
                <div>
                     <div class="form-temperature flex center">
-                         <label for="tempCity" hidden>Search for weather:</label>
+                         <label for="inputTempCity" hidden>Search for weather:</label>
                          <input type="text" id="inputTempCity" placeholder="Type your city">
                          <input type="button" value="Search" id="buttonSearchTemp" onclick="fetchOpenWeatherData()">
                     </div>
-
                </div>
+
+               <div class="show-temperature flex space-evenly align-center">
+                    <div class="flex space-around align-center direction-col">
+                         <h1 id="weatherCity">Brasília</h1>
+                         <h4 id="weatherCountry">BR</h4>
+                         <h1 id="weatherTemp">27 °C</h1>
+                    </div>
+
+                    <div class="flex space-around align-center direction-col">
+                         <img id="weatherIcon" src="" alt="Weather icon">
+                         <h3 id="weatherMain">Clouds</h3>
+                         <h5 id="weatherDescription">overcast clouds</h5>
+                    </div>
+               </div>
+
           </section>
 
 

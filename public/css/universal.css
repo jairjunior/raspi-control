@@ -81,7 +81,7 @@ footer{
 
 @media screen and (max-width: 768px){
      .section-header{
-          width: 95%;
+          width: 90%;
           margin-bottom: 20px;
      }
      .section-title{

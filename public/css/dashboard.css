@@ -28,7 +28,9 @@
 
 
 
-
+/*
+ * Search fiel for getting information from the Open Weather API
+ */
 .section-container.temperature{
      background-color: #cecac585;
      padding: 40px 0px 80px;
@@ -37,6 +39,7 @@
 .form-temperature{
      width: 50vw;
      margin: auto;
+     margin-bottom: 30px;
      padding-top: 15px
 }
 #inputTempCity{
@@ -81,6 +84,43 @@
 
 
 
+/*
+ * Card shown underneath the search field with the information from the API
+ */
+.show-temperature{
+     background-color: #E95420;
+     opacity: 1;
+     width: 60vw;
+     margin: auto;
+     padding: 30px 0px;
+     border-radius: 30px;
+     box-shadow: 2px 2px 13px rgba(0, 0, 0, 0.541);
+}
+#weatherCity{
+     font-size: 55px;
+}
+#weatherCountry{
+     margin-bottom: 20px;
+}
+#weatherTemp{
+     font-size: 45px;
+}
+#weatherIcon{
+     transform: translateY(-20px);
+}
+#weatherMain{
+     font-size: 40px;
+     transform: translateY(-27px);
+}
+#weatherDescription{
+     font-size: 18px;
+     transform: translateY(-27px);
+}
+
+
+
+
+
 @media screen and (max-width: 1200px){
      .devices .device-card{
           width: 70%;
@@ -108,8 +148,32 @@
      .form-temperature{
           width: 99vw;
      }
+     .show-temperature{
+          width: 93vw;
+     }
+     #weatherCity{
+          font-size: 40px;
+          margin-bottom: 5px;
+     }
+     #weatherCountry{
+          margin-bottom: 14px;
+     }
+     #weatherTemp{
+          font-size: 35px;
+     }
+     #weatherIcon{
+          transform: translateY(-20px);
+     }
+     #weatherMain{
+          font-size: 30px;
+          transform: translateY(-27px);
+     }
+     #weatherDescription{
+          font-size: 13px;
+          transform: translateY(-27px);
+     }
      .devices .device-card{
-          width: 96%;
+          width: 92%;
           padding: 10px;
           padding-right: 5px;
           margin-top: 25px;
