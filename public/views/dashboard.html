@@ -60,7 +60,7 @@
                </div>
 
 
-               <div>
+               <div class="search-field">
                     <div class="form-temperature flex center">
                          <label for="inputTempCity" hidden>Search for weather:</label>
                          <input type="text" id="inputTempCity" placeholder="Type your city">
@@ -82,31 +82,33 @@
                     </div>
                </div>
 
-               <div class="weather-cards flex flex-wrap space-evenly align-center">
-                    <div class="weather-card" id="feelslikeTemp">
+               <div class="weather-cards flex flex-wrap space-around align-center">
+                    
+                    <div class="weather-card flex center direction-col" id="feelslikeTemp">
                          <h3>Feels like</h3>
                          <h5></h5>
                     </div>
-                    <div class="weather-card" id="maxTemp">
+                    <div class="weather-card flex center direction-col" id="maxTemp">
                          <h3>Max temp.</h3>
                          <h5></h5>
                     </div>
-                    <div class="weather-card" id="minTemp">
+                    <div class="weather-card flex center direction-col" id="minTemp">
                          <h3>Min temp.</h3>
                          <h5></h5>
                     </div>
-                    <div class="weather-card" id="humidity">
+                    <div class="weather-card flex center direction-col" id="humidity">
                          <h3>Humidity</h3>
                          <h5></h5>
                     </div>
-                    <div class="weather-card" id="pressure">
+                    <div class="weather-card flex center direction-col" id="pressure">
                          <h3>Pressure</h3>
                          <h5></h5>
                     </div>
-                    <div class="weather-card" id="localSensor">
-                         <h3>Sensor (DHT22)</h3>
+                    <div class="weather-card flex center direction-col" id="localSensor">
+                         <h3>Sensor<br />(DHT22)</h3>
                          <h5></h5>
                     </div>
+
                </div>
 
           </section>

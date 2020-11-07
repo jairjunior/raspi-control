@@ -29,7 +29,7 @@
 
 
 /*
- * Search fiel for getting information from the Open Weather API
+ * SEARCH FIELD for getting information from the Open Weather API
  */
 .section-container.temperature{
      background-color: #cecac585;
@@ -39,8 +39,8 @@
 .form-temperature{
      width: 50vw;
      margin: auto;
+     margin-top: 50px;
      margin-bottom: 60px;
-     padding-top: 15px
 }
 #inputTempCity{
      background-color: #2c001e3a;
@@ -85,15 +85,14 @@
 
 
 /*
- * Card shown underneath the search field with the information from the API
+ * TEMPERATURE BOX shown underneath the search field with the information from the API
  */
 .show-temperature{
      background-color: #E95420;
-     opacity: 1;
      width: 50vw;
+     padding: 30px 0px;
      margin: auto;
      margin-bottom: 60px;
-     padding: 30px 0px;
      border-radius: 30px;
      box-shadow: 2px 1px 13px rgba(0, 0, 0, 0.541);
 }
@@ -118,47 +117,76 @@
      transform: translateY(-27px);
 }
 
-
-
-
 /*
- *
+ * CARDS with additional information about weather
  */
  .weather-cards{
-     padding: 0px 100px;
+     width: 70vw;
+     margin: auto;
+     padding: 0px;
  }
  .weather-card{
-      text-align: center;
-      width: 11vw;
-      border: 1px solid black;
+     text-align: center;
+     width: 9vw;
+     min-width: 10vw;
+     height: 20vh;
+     padding: 15px 0px;
+     margin-bottom: 25px;
+     border: 1px solid rgba(0, 0, 0, 0.253);
+     border-radius: 20px;
+     box-shadow: 2px 1px 8px rgba(0, 0, 0, 0.541);
+     background: rgb(174,167,159);
+     background: linear-gradient(216deg, rgba(174,167,159,1) 10%, rgba(206,202,197,1) 89%);
  }
+.weather-card h3{
+     font-size: 25px;
+     margin-bottom: 20px;
+}
+.weather-card > h5{
+     font-size: 20px
+}
+
+
+
 
 
 
 
 @media screen and (max-width: 1200px){
+     .form-temperature{
+          width: 65vw; 
+     }
+     /*-------------------------------------*/
+     .show-temperature{
+          width: 60vw;
+     }
+     /*-------------------------------------*/
+     .weather-card{
+          min-width: 12vw;
+     }
+     /*-------------------------------------*/
      .devices .device-card{
           width: 70%;
           padding: 30px;
      }
-     .form-temperature{
-          width: 65vw; 
-     }
-     .show-temperature{
-          width: 60vw;
-     }
 }
 
 @media screen and (max-width: 1024px){
-     .devices .device-card{
-          width: 80%;
-          padding: 20px;
-     }
      .form-temperature{
           width: 80vw;
      }
+     /*-------------------------------------*/
      .show-temperature{
           width: 70vw;
+     }
+     /*-------------------------------------*/
+     .weather-card{
+          min-width: 18vw;
+     }
+     /*-------------------------------------*/
+     .devices .device-card{
+          width: 80%;
+          padding: 20px;
      }
 }
 
@@ -166,12 +194,16 @@
      .section-container.temperature{
           min-height: 100vh;
      }
+     /*-------------------------------------*/
      .form-temperature{
           width: 99vw;
+          margin-top: 20px;
           margin-bottom: 40px;
      }
+     /*-------------------------------------*/
      .show-temperature{
           width: 93vw;
+          margin-bottom: 40px;
      }
      #weatherCity{
           font-size: 40px;
@@ -194,6 +226,14 @@
           font-size: 13px;
           transform: translateY(-27px);
      }
+     /*-------------------------------------*/
+     .weather-cards{
+          width: 90vw;
+      }
+     .weather-card{
+          min-width: 25vw;
+     }
+     /*-------------------------------------*/
      .devices .device-card{
           width: 92%;
           padding: 10px;
@@ -206,5 +246,14 @@
      }
      .device-dscptn p{
           font-size: 14px;
+     }
+}
+
+@media screen and (max-width: 480px){
+     .weather-cards{
+          width: 95vw;
+      }
+     .weather-card{
+          min-width: 38vw;
      }
 }

@@ -19,6 +19,16 @@ function toggleDevice(deviceName){
      xhttp.send( JSON.stringify( { 'device': deviceName } ));
 }
 
+
+var inputForm = document.getElementById("inputTempCity");
+inputForm.addEventListener("keyup", function(event) {
+     if (event.keyCode === 13) {
+          event.preventDefault();
+          document.getElementById("buttonSearchTemp").click();
+     }
+});
+
+
 function fetchOpenWeatherData(city){
      if(city) var inputCity = city;
      else var inputCity = document.getElementById('inputTempCity').value;
