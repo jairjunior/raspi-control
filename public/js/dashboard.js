@@ -1,8 +1,9 @@
 "use strict";
+//import { WEATHER_API_TOKEN } from './../../keys-dev';
+
 var xhttp = new XMLHttpRequest();
 const controlLedURL = 'http://192.168.0.13:3000/devices';
 var xhttpOpenWeather = new XMLHttpRequest();
-
 
 
 function toggleDevice(deviceName){
@@ -18,7 +19,6 @@ function toggleDevice(deviceName){
      xhttp.send( JSON.stringify( { 'device': deviceName } ));
 }
 
-
 function fetchOpenWeatherData(city){
      if(city) var inputCity = city;
      else var inputCity = document.getElementById('inputTempCity').value;
@@ -31,15 +31,12 @@ function fetchOpenWeatherData(city){
                updateViewTemperature(response);
           }
      }
-
-     let openWeatherURL = 'http://api.openweathermap.org/data/2.5/weather?q='+ inputCity +'&units=metric&appid=3fac209af6ec25171758d68e10d5c9a8';
+     let openWeatherURL = 'http://api.openweathermap.org/data/2.5/weather?q='+ inputCity +'&units=metric&appid=' + '3fac209af6ec25171758d68e10d5c9a8';
      console.log(openWeatherURL);
      xhttpOpenWeather.open('GET', openWeatherURL, true);
      xhttpOpenWeather.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
      xhttpOpenWeather.send();
 }
-
-
 
 function updateViewTemperature(weatherData){
      let iconCode = weatherData.weather[0].icon;
@@ -50,6 +47,19 @@ function updateViewTemperature(weatherData){
      document.getElementById('weatherIcon').setAttribute("src", iconURL);
      document.getElementById('weatherMain').innerHTML = weatherData.weather[0].main;
      document.getElementById('weatherDescription').innerHTML = weatherData.weather[0].description;
+
+     let feelsLike = document.getElementById('feelslikeTemp');
+     feelsLike.querySelector('h5').innerHTML = weatherData.main.feels_like + '°C';
+     let maxTemp = document.getElementById('maxTemp');
+     maxTemp.querySelector('h5').innerHTML = weatherData.main.temp_max + '°C';
+     let minTemp = document.getElementById('minTemp');
+     minTemp.querySelector('h5').innerHTML = weatherData.main.temp_min + '°C';
+     let humidity = document.getElementById('humidity');
+     humidity.querySelector('h5').innerHTML = weatherData.main.humidity + '%';
+     let pressure = document.getElementById('pressure');
+     pressure.querySelector('h5').innerHTML = weatherData.main.pressure + ' hPa';
+     let localSensor = document.getElementById('localSensor');
+     localSensor.querySelector('h5').innerHTML = '99°C';
 }
 
 fetchOpenWeatherData('Brasilia');

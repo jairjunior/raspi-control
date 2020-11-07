@@ -1,8 +1,11 @@
 const express = require('express');
+require('dotenv');
 const path = require('path');
 const app = express();
 const ControlDevices = require('./src/ControlDevices');
 var sensor = require("node-dht-sensor");
+const MY_PORT = process.env.PORT || 8080;
+
 
 /* 
  * Configurações do pacote body-parser para interpretar JSON 
@@ -65,6 +68,7 @@ app.post('/devices', (req, res) => {
 });
 	
 
-app.listen(3000, () => {
-	console.log('Server listening on port 3000...');
+
+app.listen(MY_PORT, () => {
+	console.log(`Server listening on port ${MY_PORT}...`);
 });

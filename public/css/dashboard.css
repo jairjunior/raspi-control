@@ -39,7 +39,7 @@
 .form-temperature{
      width: 50vw;
      margin: auto;
-     margin-bottom: 30px;
+     margin-bottom: 60px;
      padding-top: 15px
 }
 #inputTempCity{
@@ -90,11 +90,12 @@
 .show-temperature{
      background-color: #E95420;
      opacity: 1;
-     width: 60vw;
+     width: 50vw;
      margin: auto;
+     margin-bottom: 60px;
      padding: 30px 0px;
      border-radius: 30px;
-     box-shadow: 2px 2px 13px rgba(0, 0, 0, 0.541);
+     box-shadow: 2px 1px 13px rgba(0, 0, 0, 0.541);
 }
 #weatherCity{
      font-size: 55px;
@@ -120,6 +121,20 @@
 
 
 
+/*
+ *
+ */
+ .weather-cards{
+     padding: 0px 100px;
+ }
+ .weather-card{
+      text-align: center;
+      width: 11vw;
+      border: 1px solid black;
+ }
+
+
+
 
 @media screen and (max-width: 1200px){
      .devices .device-card{
@@ -127,7 +142,10 @@
           padding: 30px;
      }
      .form-temperature{
-          width: 65vw;
+          width: 65vw; 
+     }
+     .show-temperature{
+          width: 60vw;
      }
 }
 
@@ -139,6 +157,9 @@
      .form-temperature{
           width: 80vw;
      }
+     .show-temperature{
+          width: 70vw;
+     }
 }
 
 @media screen and (max-width: 768px){
@@ -147,6 +168,7 @@
      }
      .form-temperature{
           width: 99vw;
+          margin-bottom: 40px;
      }
      .show-temperature{
           width: 93vw;
