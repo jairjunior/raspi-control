@@ -5,7 +5,7 @@ var xhttp = new XMLHttpRequest();
 var controlLedURL = 'http://192.168.0.13:3000/devices';
 
 
-function turnOnOff(deviceName){
+function toggleDevice(deviceName){
      console.log('Turn on/off ' + deviceName);
 
      xhttp.onreadystatechange = function(){
@@ -16,4 +16,12 @@ function turnOnOff(deviceName){
      xhttp.open('POST', controlLedURL, true);
      xhttp.setRequestHeader("Content-type", "application/json");
      xhttp.send( JSON.stringify( { 'device': deviceName } ));
+}
+
+
+
+
+function fetchOpenWeatherData(){
+
+     
 }

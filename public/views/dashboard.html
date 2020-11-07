@@ -20,6 +20,8 @@
      <link rel="stylesheet" type="text/css" href="./css/buttons.css">
 
      <link href="https://fonts.googleapis.com/css2?family=Syne+Mono&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 
      <title>RaspiControl | HOME</title>
 </head>
@@ -48,6 +50,28 @@
      </div>
      <main>
 
+          <!---------------------------  TEMPERATURA --------------------------->
+          <section class="section-container temperature">
+               <div class="section-header">
+                    <header>
+                         <h1 class="section-title">Temperature</h1>
+                         <p class="section-text"><em>Compare your temperature measurements with data from OpenWeather API.</em></p>
+                    </header>
+               </div>
+
+               <div>
+                    <div class="form-temperature flex center">
+                         <label for="tempCity" hidden>Search for weather:</label>
+                         <input type="text" id="inputTempCity" placeholder="Type your city">
+                         <input type="button" value="Search" id="buttonSearchTemp" onclick="fetchOpenWeatherData()">
+                    </div>
+
+               </div>
+          </section>
+
+
+
+
           <!---------------------------  DEVICES --------------------------->
           <section class="section-container devices">
 
@@ -65,7 +89,7 @@
                          <p>Use the button to turn on and off the <span class="text-green">green LED</span> remotely.</p>
                     </div>
                     <div class="device-action">
-                         <input type="button" value="Toggle State" class="btn btn-info" onclick="turnOnOff('greenLED')">
+                         <input type="button" value="Toggle State" class="btn btn-info" onclick="toggleDevice('greenLED')">
                          <p id="greenLEDMsg"></p>
                     </div>
                </div>
@@ -77,7 +101,7 @@
                          <p>Use the buttons below to turn on and off the <span class="text-red">red LED</span> remotely.</p>
                     </div>
                     <div class="device-action">
-                         <input type="button" value="Toggle State" class="btn btn-info" onclick="turnOnOff('redLED')">
+                         <input type="button" value="Toggle State" class="btn btn-info" onclick="toggleDevice('redLED')">
                          <p id="redLEDMsg"></p>
                     </div>
                </div>
