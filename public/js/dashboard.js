@@ -2,7 +2,7 @@
 //import { WEATHER_API_TOKEN } from './../../keys-dev';
 
 var xhttp = new XMLHttpRequest();
-const controlLedURL = 'http://192.168.0.13:3000/devices';
+const controlLedURL = '/devices';
 var xhttpOpenWeather = new XMLHttpRequest();
 
 
@@ -20,15 +20,6 @@ function toggleDevice(deviceName){
 }
 
 
-var inputForm = document.getElementById("inputTempCity");
-inputForm.addEventListener("keyup", function(event) {
-     if (event.keyCode === 13) {
-          event.preventDefault();
-          document.getElementById("buttonSearchTemp").click();
-     }
-});
-
-
 function fetchOpenWeatherData(city){
      if(city) var inputCity = city;
      else var inputCity = document.getElementById('inputTempCity').value;
@@ -37,16 +28,14 @@ function fetchOpenWeatherData(city){
      xhttpOpenWeather.onreadystatechange = function(){
           if(this.readyState == 4 && this.status == 200){
                response = JSON.parse(this.responseText)
-               console.log( response );
                updateViewTemperature(response);
           }
      }
-     let openWeatherURL = 'http://api.openweathermap.org/data/2.5/weather?q='+ inputCity +'&units=metric&appid=' + '3fac209af6ec25171758d68e10d5c9a8';
-     console.log(openWeatherURL);
+     let openWeatherURL = 'openweatherdata?city='+ inputCity;
      xhttpOpenWeather.open('GET', openWeatherURL, true);
-     xhttpOpenWeather.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
      xhttpOpenWeather.send();
 }
+
 
 function updateViewTemperature(weatherData){
      let iconCode = weatherData.weather[0].icon;
@@ -58,18 +47,44 @@ function updateViewTemperature(weatherData){
      document.getElementById('weatherMain').innerHTML = weatherData.weather[0].main;
      document.getElementById('weatherDescription').innerHTML = weatherData.weather[0].description;
 
-     let feelsLike = document.getElementById('feelslikeTemp');
-     feelsLike.querySelector('h5').innerHTML = weatherData.main.feels_like + '°C';
-     let maxTemp = document.getElementById('maxTemp');
-     maxTemp.querySelector('h5').innerHTML = weatherData.main.temp_max + '°C';
-     let minTemp = document.getElementById('minTemp');
-     minTemp.querySelector('h5').innerHTML = weatherData.main.temp_min + '°C';
-     let humidity = document.getElementById('humidity');
-     humidity.querySelector('h5').innerHTML = weatherData.main.humidity + '%';
-     let pressure = document.getElementById('pressure');
-     pressure.querySelector('h5').innerHTML = weatherData.main.pressure + ' hPa';
-     let localSensor = document.getElementById('localSensor');
-     localSensor.querySelector('h5').innerHTML = '99°C';
+     document.querySelector('#feelslikeTemp > h5').innerText = weatherData.main.feels_like + '°C';
+     document.querySelector('#maxTemp > h5').innerHTML = weatherData.main.temp_max + '°C';
+     document.querySelector('#minTemp > h5').innerHTML = weatherData.main.temp_min + '°C';
+     document.querySelector('#humidity > h5').innerHTML = weatherData.main.humidity + '%';
+     document.querySelector('#pressure > h5').innerHTML = weatherData.main.pressure + ' hPa';
+     fetchDHT22Data();
+}
+fetchOpenWeatherData('Brasilia');
+
+
+
+function fetchDHT22Data(){
+     const dht22URL = '/dht22data';
+     var response;
+     xhttpOpenWeather.onreadystatechange = function(){
+          if(this.readyState == 4 && this.status == 200){
+               response = JSON.parse(this.responseText);
+               updateViewLocalTemp(response);
+          }
+     }
+     xhttpOpenWeather.open('GET', dht22URL, true);
+     xhttpOpenWeather.send();
 }
 
-fetchOpenWeatherData('Brasilia');
+function updateViewLocalTemp(data){
+     document.querySelector('#localTemp > h5').innerHTML = data.temperature + '°C';
+     document.querySelector('#localHumidity > h5').innerHTML = data.humidity + '%';
+} 
+
+
+/*
+ * Add event listener to subimit form when RETURN button is pressed 
+ * in order to search weather data for a specific city
+ */
+var inputForm = document.getElementById("inputTempCity");
+inputForm.addEventListener("keyup", function(event) {
+     if ( (event.keyCode === 13) || (event.which === 13) ){
+          event.preventDefault();
+          document.getElementById("buttonSearchTemp").click();
+     }
+});

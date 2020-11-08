@@ -1,10 +1,13 @@
 const express = require('express');
-require('dotenv');
 const path = require('path');
 const app = express();
+const axios = require('axios');
+require('dotenv');
+
 const ControlDevices = require('./src/ControlDevices');
-var sensor = require("node-dht-sensor");
+const sensor = require("node-dht-sensor");
 const MY_PORT = process.env.PORT || 8080;
+
 
 
 /* 
@@ -53,17 +56,52 @@ app.get('/dashboard', (req, res) => {
 });
 
 
-app.post('/devices', (req, res) => {
-	var device = req.body.device;
-	console.log();
-	console.log('Server: sending request for toggle ' + device);
-	let result = controlDevices.toggle(device);
 
-	// Temporary test with the 1-wire interface. Just testing....
-	sensor.read(22, 4, function(err, temperature, humidity) {
+
+app.get('/openweatherdata', async (req, res) => {
+	console.log('------------------------');
+	console.log('Request to get data from Open Weather API.');
+	var json = await getOpenWeatherData(req.query.city);
+	res.json(json);
+	res.end();
+});
+async function getOpenWeatherData(city){
+	const tokenAPI = process.env.WEATHER_API_TOKEN;
+	const URL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${tokenAPI}`;
+	try{
+		const response = await axios.get(URL, { headers: {'Content-Type': 'application/x-www-form-urlencoded'} });
+		return response.data;
+	}catch(error){
+		console.error(error);
+		return null;
+	}
+ }
+
+
+
+app.get('/dht22data', (req, res) => {
+	console.log('------------------------');
+	console.log('Request to get data from DHT22 sensor.');
+
+	sensor.read(22, 4, function(err, temperature, humidity){
 		console.log(`temp: ${temperature}°C, humidity: ${humidity}%`);
+		if(err) throw err;
+		else{
+			temp = temperature.toFixed(2);
+			humid = Math.round(humidity);
+			res.status(200).json({ 'temperature': temp, 'humidity': humid });
+		}
 	});
-	   
+});
+
+
+
+app.post('/devices', (req, res) => {
+	console.log('------------------------');
+	console.log('Toggle device: ' + req.body.device);
+
+	var device = req.body.device;
+	let result = controlDevices.toggle(device);   
 	res.status(result).send({ 'status': 'success' });
 });
 	

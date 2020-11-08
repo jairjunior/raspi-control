@@ -98,6 +98,7 @@
 }
 #weatherCity{
      font-size: 55px;
+     text-align: center;
 }
 #weatherCountry{
      margin-bottom: 20px;
@@ -130,8 +131,9 @@
      width: 9vw;
      min-width: 10vw;
      height: 20vh;
+     max-height: 20vh;
      padding: 15px 0px;
-     margin-bottom: 25px;
+     margin: 0px 10px 25px;
      border: 1px solid rgba(0, 0, 0, 0.253);
      border-radius: 20px;
      box-shadow: 2px 1px 8px rgba(0, 0, 0, 0.541);
@@ -250,6 +252,38 @@
 }
 
 @media screen and (max-width: 480px){
+     .temp-leftside{
+          max-width: 50%;
+          min-width: 48%;
+          margin-left: 8px;
+     }
+     .temp-rightside{
+          max-width: 50%;
+          min-width: 45%;
+          margin-right: 5px;
+     }
+     #weatherCity{
+          font-size: 33px;
+          margin-bottom: 5px;
+     }
+     #weatherCountry{
+          margin-bottom: 14px;
+     }
+     #weatherTemp{
+          font-size: 30px;
+     }
+     #weatherIcon{
+          transform: translateY(-20px);
+     }
+     #weatherMain{
+          font-size: 24px;
+          transform: translateY(-27px);
+     }
+     #weatherDescription{
+          font-size: 12px;
+          transform: translateY(-27px);
+     }
+     /*-------------------------------------*/
      .weather-cards{
           width: 95vw;
       }

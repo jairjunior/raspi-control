@@ -70,12 +70,12 @@
 
 
                <div class="show-temperature flex space-evenly align-center">
-                    <div class="flex space-around align-center direction-col">
+                    <div class="temp-leftside flex space-around align-center direction-col">
                          <h1 id="weatherCity">Brasília</h1>
-                         <h4 id="weatherCountry">BR</h4>
-                         <h1 id="weatherTemp">27 °C</h1>
+                         <h5 id="weatherCountry">BR</h4>
+                         <h2 id="weatherTemp">27 °C</h1>
                     </div>
-                    <div class="flex space-around align-center direction-col">
+                    <div class="temp-rightside flex space-around align-center direction-col">
                          <img id="weatherIcon" src="" alt="Weather icon">
                          <h3 id="weatherMain">Clouds</h3>
                          <h5 id="weatherDescription">overcast clouds</h5>
@@ -104,8 +104,12 @@
                          <h3>Pressure</h3>
                          <h5></h5>
                     </div>
-                    <div class="weather-card flex center direction-col" id="localSensor">
-                         <h3>Sensor<br />(DHT22)</h3>
+                    <div class="weather-card flex center direction-col" id="localTemp">
+                         <h3>Temp.<br />(DHT22)</h3>
+                         <h5></h5>
+                    </div>
+                    <div class="weather-card flex center direction-col" id="localHumidity">
+                         <h3>Humidity<br />(DHT22)</h3>
                          <h5></h5>
                     </div>
 
